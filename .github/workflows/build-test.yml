@@ -28,11 +28,10 @@ jobs:
 
 
 
-          
+
 ############################################
 #Vad denna pipeline gör är 
 #När pushar kod till GitHub:
-############################################
 #GitHub startar en Linux VM
 #Python 3.9 installeras
 #kod testas genom att:
