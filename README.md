@@ -32,5 +32,5 @@ Projektet använder:
 ### Klona repository
 
 ```bash
-git clone https://github.com/<your-username>/personregister-testmiljo.git
+git clone https://github.com/AliReza-Hezareh/personregister-testmiljo
 cd personregister-testmiljo
