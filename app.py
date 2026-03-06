@@ -14,14 +14,18 @@ def init_database():
             email TEXT NOT NULL
         )
     ''')
+    
 
     cursor.execute('SELECT COUNT(*) FROM users')
     count = cursor.fetchone()[0]
 
     if count == 0:
         test_users = [
-            ('Anna Andersson', 'anna@test.se'),
-            ('Bo Bengtsson', 'bo@test.se')
+            ('Sara Lind', 'sara@test.se'),
+            ('Omar Hassan', 'omar@test.se'),
+            ('Linnea Karlsson', 'linnea@test.se'),
+            ('Erik Svensson', 'erik@test.se'),
+            ('Fatima Ali', 'fatima@test.se')
         ]
 
         cursor.executemany(
@@ -65,17 +69,32 @@ def clear_test_data():
     print("All test data has been cleared (GDPR compliant)")
 
 
-def anonymize_data():
+def anonymize_user():
     db_path = os.getenv('DATABASE_PATH', '/data/test_users.db')
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
-    cursor.execute('UPDATE users SET name = "Anonym Användare"')
+    cursor.execute("UPDATE users SET name = 'Anonymous User', email = 'hidden@test.se'")
 
     conn.commit()
     conn.close()
 
     print("All user names have been anonymized (GDPR compliant)")
+    #eget funktion som testar anonymisering av data, i det här fallet byter vi ut alla namn mot "Anonym Användare".
+def add_user(name, email):
+    db_path = os.getenv('DATABASE_PATH', '/data/test_users.db')
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "INSERT INTO users (name, email) VALUES (?, ?)",
+        (name, email)
+    )
+
+    conn.commit()
+    conn.close()
+
+    print("User added successfully")
 
 
 if __name__ == "__main__":

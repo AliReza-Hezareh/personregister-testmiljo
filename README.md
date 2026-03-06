@@ -6,12 +6,16 @@ Projektet demonstrerar hur testdata kan hanteras säkert i en testmiljö med hj�
 
 ---
 
+## Project features
+
+- SQLite test database
+- GDPR anonymization
+- Test data deletion
+- Docker containerized environment
+- GitHub Actions CI pipeline
+
 ## Funktioner
 
-- Skapar en SQLite-databas med testanvändare
-- Visar alla användare i databasen
-- Rensar all testdata (GDPR-åtgärd)
-- Anonymiserar användardata (GDPR-åtgärd)
 
 ---
 
