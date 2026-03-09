@@ -21,6 +21,7 @@ jobs:
           python -c "import sqlite3, os; print('All imports successful')"
           python -m py_compile app.py
           echo "Code compilation successful"
+          
 
 
 
